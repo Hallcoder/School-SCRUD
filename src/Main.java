@@ -50,10 +50,15 @@ public class Main {
                 "4. Get a class\n" +
                 "5. Read all classes ");
         int choice = scanner.nextInt();
+        scanner.nextLine();
         switch (choice){
             case 1:
-                Class.Register();
-            break;
+                try {
+                    Class.Register();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             case 2:
                 Class.Delete();
             break;
