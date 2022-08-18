@@ -81,14 +81,17 @@ public class Class {
            FileWriter newFile = new FileWriter("classes.txt");
            newFile.write("Class ID:" + newClass.id + "\n" +
                    "ClassName:" + newClass.name + "\n" +
-                   "Class Level:" + newClass.level + "\n"+" " +
-                   "Students:" +"\n\n============================" + "");
+                   "Class Level:" + newClass.level + "\n"+
+                   "Students:");
            if(newClass.students.size()>0){
                for(int i=0;i<newClass.students.size();i++){
-                  newFile.write("Student" + i+1 + "\n" +
-                                  "Name:" + newClass.students.get(i).name +
-                          "ClassName:" + newClass.students.get(i).assignedClass +
-                          "Date of Birth");
+                  newFile.write("Student" + (i+1) + "\n" +
+                          "Name:" + newClass.students.get(i).name +
+                          "\nClassName:" + newClass.students.get(i).assignedClass +
+                          "\nDate of Birth:" + newClass.students.get(i).dob +
+                          "\nMother:" + newClass.students.get(i).motherName +
+                          "\nFather:" + newClass.students.get(i).fatherName +
+                          "\n\n=================================================");
                }
            }
            newFile.close();

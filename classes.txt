@@ -1,4 +1,18 @@
-Classes:
-  Class ID:6
-  ClassName:Year 1B
-  Class Level:O_LEVEL
+Class ID:2
+ClassName:S1A
+Class Level:O_LEVEL
+Students:Student1
+Name:aimable
+ClassName:S1A
+Date of Birth:Fri Mar 12 00:00:00 SAST 2004
+Mother:null
+Father:null
+
+=================================================Student2
+Name:hirwa
+ClassName:S1A
+Date of Birth:Sat Apr 28 00:00:00 SAST 2001
+Mother:null
+Father:null
+
+=================================================
