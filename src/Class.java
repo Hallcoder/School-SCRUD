@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -53,28 +55,55 @@ public class Class {
                    System.out.println("Student"+(i+1));
                    System.out.println("\tStudent's name:");
                    studentName = scanner.nextLine();
-                   System.out.println("\tStudents's classname:");
-                   className = scanner.nextLine();
                    System.out.println("\tStudent's date of birth: 'eg(12/08/2005)'");
                    dob = scanner.nextLine();
-                   Student newStudent = new Student(studentName,className,dob);
+                   Student newStudent = new Student(studentName,name,dob);
                    students.add(newStudent);
                }
                Class newClass = new Class(level,name,students);
                System.out.println("So you are now set a new class it created with the following info:");
-               System.out.println("Class ID:" + newClass.id + "\n" +
-                       "ClassName:" + newClass.name + "\n" +
-                       "Class Level:" + newClass.level + "\n");
+               writeToFile(newClass);
                break;
            case 2:
                 newClass = new Class(level,name,students);
-               System.out.println("So you are now set a new class it created with the following info:");
+               System.out.println("Class ID:" + newClass.id + "\n" +
+                       "ClassName:" + newClass.name + "\n" +
+                       "Class Level:" + newClass.level + "\n");
+               writeToFile(newClass);
+           break;
+           default:
+               System.out.println("Wrong choice");
+               System.exit(1);
+       }
+   }
+   public static void writeToFile(Class newClass){
+       try{
+           FileWriter newFile = new FileWriter("classes.txt");
+           newFile.write("Class ID:" + newClass.id + "\n" +
+                   "ClassName:" + newClass.name + "\n" +
+                   "Class Level:" + newClass.level + "\n"+" " +
+                   "Students:" +"\n\n============================" + "");
+           if(newClass.students.size()>0){
+               for(int i=0;i<newClass.students.size();i++){
+                  newFile.write("Student" + i+1 + "\n" +
+                                  "Name:" + newClass.students.get(i).name +
+                          "ClassName:" + newClass.students.get(i).assignedClass +
+                          "Date of Birth");
+               }
+           }
+           newFile.close();
+       }catch (IOException e) {
+           System.out.println("Error Occured!");
+           e.printStackTrace();
        }
    }
    public static  void Edit(){
 
    }
    public static void Delete(){
+       int id;
+       System.out.println("Enter the  id of the class to be deleted:");
+       id = scanner.nextInt();
 
    }
 }
